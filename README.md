@@ -88,7 +88,7 @@ bash scripts/predict_links_of_pretraining_dataset.sh <gpu> <load_path> <hidden_s
 
 Tu run node classification task:
 ```
-bash scripts/node_classification/classify_node_of_downstream_dataset.sh <gpu> <load_path> <hidden_size> <downstream_dataset>
+bash scripts/classify_node_of_downstream_dataset.sh <gpu> <load_path> <hidden_size> <downstream_dataset>
 ```
 
 
