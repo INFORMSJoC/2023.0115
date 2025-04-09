@@ -77,7 +77,7 @@ python -u scripts/generate_pretraining_and_downstream_dataset.py --dataset [date
 ```
 
 ### Model Structure
-The structure of GIN network and graph encoder are provided in `scripts/gin_edge_weighted.py` (class GIN_Edge_Weighted) and `scripts/graph_encoder_edge_weighted.py` (class GraphEncoder_Edge_Weighted).
+The structure of GIN network and graph encoder are provided in `scripts/graph_encoder_edge_weighted.py` (class GraphEncoder_Edge_Weighted).
 
 ### Downstream Tasks
 
