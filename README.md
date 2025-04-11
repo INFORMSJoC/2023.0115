@@ -70,10 +70,10 @@ tensorboard_logger==0.1.0
 ## Scripts
 
 ### data processing
-The data processing script is provided in `scripts/generate_pretraining_and_downstream_dataset.py`. For each dataset, we use this script to generate the pretraining and downstream graphs. The run command is shown as follows:
+The data processing script is provided in `scripts/generate_data.py`. For each dataset, we use this script to generate the pretraining and downstream graphs. The run command is shown as follows:
 
 ```python
-python -u scripts/generate_pretraining_and_downstream_dataset.py --dataset [dateset_name]
+python -u scripts/generate_data.py --dataset [dateset_name]
 ```
 
 ### Model Structure
@@ -83,12 +83,12 @@ The structure of GIN network and graph encoder are provided in `scripts/graph_en
 
 To run link prediction task:
 ```
-bash scripts/predict_links_of_pretraining_dataset.sh <gpu> <load_path> <hidden_size> <dowstream_dataset> <pretraining_dataset>
+bash scripts/link_prediction <gpu> <load_path> <hidden_size> <dowstream_dataset> <pretraining_dataset>
 ```
 
 Tu run node classification task:
 ```
-bash scripts/classify_node_of_downstream_dataset.sh <gpu> <load_path> <hidden_size> <downstream_dataset>
+bash scripts/node_classification.sh <gpu> <load_path> <hidden_size> <downstream_dataset>
 ```
 
 
