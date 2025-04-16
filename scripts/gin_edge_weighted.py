@@ -207,21 +207,3 @@ class GIN_Edge_Weighted(nn.Module):
             score_over_layer += self.drop(self.linears_prediction[i](pooled_h))
 
         return score_over_layer, nodes_representation
-
-    def _get_node_connectivity_mask(self, g, node_num, edge_index, edge_weight, device):
-        """
-        get the node mask such that the node disconnceted from the "center" node is masked.
-        """
-        if edge_weight is None:
-            return torch.ones((node_num, 1), dtype=torch.float32, device=device)
-        remained_edge_ind = (edge_weight >=  0.9).nonzero(as_tuple=False).squeeze()
-        edge_index_remained = edge_index.index_select(dim=-1, index=remained_edge_ind)
-        adj_remained = to_scipy_sparse_matrix(edge_index_remained, num_nodes=node_num)
-        _, components = sp.csgraph.connected_components(adj_remained) 
-        center_node_ind = (g.ndata['seed'] == 1).nonzero().squeeze().cpu().numpy()
-        components_remained = components[center_node_ind]
-        node_mask = torch.zeros(node_num, dtype=torch.float32, device=device)
-        components = torch.tensor(components, device=device)
-        for comp_ind in components_remained:
-            node_mask = node_mask + torch.where(components==comp_ind, 1.0, 0.0)
-        return node_mask[:, np.newaxis]

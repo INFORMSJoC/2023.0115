@@ -101,6 +101,4 @@ bash scripts/node_classification.sh <gpu> <load_path> <hidden_size> <downstream_
 
 # Acknowledgements
 
-Part of this code is inspired by [GCC](https://github.com/THUDM/GCC) and [CMC](https://github.com/HobbitLong/CMC)
-
-
+The implementation of GIN architecture (`scripts/gin_edge_weighted.py`) borrows from [GCC](https://github.com/THUDM/GCC), and we comply with the corresponding [MIT LICENSE](https://github.com/THUDM/GCC/blob/master/LICENSE) in our repository.
